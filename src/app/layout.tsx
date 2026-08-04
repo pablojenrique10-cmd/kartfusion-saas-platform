@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 import WhatsAppButton from "@/components/WhatsAppButton";
