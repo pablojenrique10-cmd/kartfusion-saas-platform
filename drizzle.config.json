@@ -2,6 +2,6 @@
   "dialect": "postgresql",
   "schema": "./src/db/schema.ts",
   "dbCredentials": {
-    "url": "postgresql://postgres:Jpestraga021.@127.0.0.1:5432/kartfusion"
+    "url": "postgresql://postgres.bicvkuozsnecjfleushz:Jpestraga021.@aws-0-ca-central-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
   }
 }
