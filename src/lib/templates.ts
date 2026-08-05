@@ -10,11 +10,13 @@ import {
   type SectionStyles,
 } from "@/lib/blocks";
 
+
 export interface BlueprintSection {
   type: BlockType;
   content?: SectionContent;
   styles?: SectionStyles;
 }
+
 
 export interface BlueprintPage {
   name: string;
@@ -23,24 +25,44 @@ export interface BlueprintPage {
   sections: BlueprintSection[];
 }
 
+
 export interface TemplateBlueprint {
   pages: BlueprintPage[];
 }
 
+
 export interface TemplateDefinition {
+
   id: string;
+
   name: string;
+
   category: string;
+
   description: string;
+
   emoji: string;
+
   gradient: string;
+
   minPlanLevel: 1 | 2 | 3;
+
   primaryColor: string;
+
   secondaryColor: string;
+
   fontFamily: string;
+
   featured: boolean;
+
+  // NOVO: imagem usada no preview dos templates
+  preview?: string;
+
   blueprint: TemplateBlueprint;
+
 }
+
+
 
 const s = (
   type: BlockType,
@@ -53,7 +75,9 @@ const s = (
 });
 
 
+
 const IMAGES = {
+
   corp:
     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
 
@@ -86,6 +110,7 @@ const IMAGES = {
 
   creator:
     "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&w=1600&q=80",
+
 };
 
 
@@ -98,76 +123,59 @@ function institutionalPages(
 
     {
       name: "Sobre",
+
       path: "/sobre",
 
       sections: [
 
-        s(
-          "header",
-          {
-            logoText: brand,
-          }
-        ),
+        s("header", {
+          logoText: brand
+        }),
 
-        s(
-          "text",
-          {
-            eyebrow: "Nossa história",
-            title: `Conheça a ${brand}`,
-          }
-        ),
+        s("text", {
+          eyebrow: "Nossa história",
+          title: `Conheça a ${brand}`
+        }),
 
         s("counters"),
 
-        s(
-          "footer",
-          {
-            logoText: brand,
-          }
-        ),
+        s("footer", {
+          logoText: brand
+        }),
 
       ],
+
     },
 
 
     {
       name: "Contato",
+
       path: "/contato",
 
       sections: [
 
-        s(
-          "header",
-          {
-            logoText: brand,
-          }
-        ),
+        s("header", {
+          logoText: brand
+        }),
 
-        s(
-          "form",
-          {
-            title: "Fale conosco",
-            subtitle:
-              "Responderemos em até 24 horas úteis.",
-          }
-        ),
+        s("form", {
+          title: "Fale conosco",
+          subtitle:
+            "Responderemos em até 24 horas úteis."
+        }),
 
-        s(
-          "footer",
-          {
-            logoText: brand,
-          }
-        ),
+        s("footer", {
+          logoText: brand
+        }),
 
       ],
+
     },
 
   ];
 
 }
-
-
-
 export const TEMPLATES: TemplateDefinition[] = [
 
   {
@@ -195,6 +203,8 @@ export const TEMPLATES: TemplateDefinition[] = [
 
     featured: true,
 
+    preview: IMAGES.corp,
+
 
     blueprint: {
 
@@ -208,67 +218,59 @@ export const TEMPLATES: TemplateDefinition[] = [
 
           isHome: true,
 
-
           sections: [
 
-            s(
-              "header",
-              {
-                logoText: "Nexus Corp",
-              }
-            ),
+            s("header", {
+              logoText: "Nexus Corp"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Soluções corporativas",
+              eyebrow:
+                "Soluções corporativas",
 
-                title:
-                  "Tecnologia que impulsiona o seu negócio",
+              title:
+                "Tecnologia que impulsiona o seu negócio",
 
-                subtitle:
-                  "Consultoria, software e infraestrutura para empresas que querem crescer com segurança.",
+              subtitle:
+                "Consultoria, software e infraestrutura para empresas que querem crescer com segurança.",
 
-                imageUrl:
-                  IMAGES.corp,
+              imageUrl:
+                IMAGES.corp,
 
-                buttonLabel:
-                  "Solicitar proposta",
+              buttonLabel:
+                "Solicitar proposta",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Nossos serviços",
-              }
-            ),
+            s("cards", {
+              title:
+                "Nossos serviços"
+            }),
 
 
             s("counters"),
 
+
             s("testimonials"),
+
 
             s("faq"),
 
+
             s("cta"),
+
 
             s("form"),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Nexus Corp",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Nexus Corp"
+            }),
+
 
           ],
 
@@ -284,6 +286,11 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
+
+
+
+
+
   {
     id: "loja-virtual",
 
@@ -309,6 +316,9 @@ export const TEMPLATES: TemplateDefinition[] = [
 
     featured: true,
 
+    preview:
+      IMAGES.shop,
+
 
     blueprint: {
 
@@ -325,84 +335,64 @@ export const TEMPLATES: TemplateDefinition[] = [
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Studio Store",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Studio Store"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Coleção 2026",
+              eyebrow:
+                "Coleção 2026",
 
-                title:
-                  "Produtos selecionados para você",
+              title:
+                "Produtos selecionados para você",
 
-                subtitle:
-                  "Frete grátis acima de R$ 199 e parcelamento em até 12x sem juros.",
+              subtitle:
+                "Frete grátis acima de R$ 199 e parcelamento em até 12x sem juros.",
 
-                imageUrl:
-                  IMAGES.shop,
+              imageUrl:
+                IMAGES.shop,
 
-                buttonLabel:
-                  "Ver produtos",
+              buttonLabel:
+                "Ver produtos",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "Mais vendidos",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Mais vendidos"
+            }),
 
 
-            s(
-              "pricing",
-              {
-                title:
-                  "Kits promocionais",
-              }
-            ),
+            s("pricing", {
+              title:
+                "Kits promocionais"
+            }),
 
 
-            s(
-              "icons",
-              {
-                title:
-                  "Compre com confiança",
-              }
-            ),
+            s("icons", {
+              title:
+                "Compre com confiança"
+            }),
 
 
             s("testimonials"),
 
 
-            s(
-              "cta",
-              {
-                title:
-                  "Aproveite 10% OFF na primeira compra",
-              }
-            ),
+            s("cta", {
+              title:
+                "Aproveite 10% OFF na primeira compra"
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Studio Store",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Studio Store"
+            }),
+
 
           ],
 
@@ -422,30 +412,41 @@ export const TEMPLATES: TemplateDefinition[] = [
 
 
 
+
   {
     id: "portfolio",
 
     name: "Portfólio",
 
-    category: "Criativo",
+    category:
+      "Criativo",
 
     description:
       "Vitrine minimalista para designers, fotógrafos e estúdios criativos.",
 
-    emoji: "🎨",
+    emoji:
+      "🎨",
 
     gradient:
       "from-fuchsia-600 via-purple-600 to-indigo-600",
 
-    minPlanLevel: 1,
+    minPlanLevel:
+      1,
 
-    primaryColor: "#a855f7",
+    primaryColor:
+      "#a855f7",
 
-    secondaryColor: "#22e58a",
+    secondaryColor:
+      "#22e58a",
 
-    fontFamily: "Sora",
+    fontFamily:
+      "Sora",
 
-    featured: true,
+    featured:
+      true,
+
+    preview:
+      IMAGES.portfolio,
 
 
     blueprint: {
@@ -454,87 +455,79 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Ana Ribeiro",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Ana Ribeiro"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Designer & Diretora de arte",
+              eyebrow:
+                "Designer & Diretora de arte",
 
-                title:
-                  "Identidades visuais que marcam",
+              title:
+                "Identidades visuais que marcam",
 
-                subtitle:
-                  "Portfólio de projetos de branding, web e direção criativa.",
+              subtitle:
+                "Portfólio de projetos de branding, web e direção criativa.",
 
-                imageUrl:
-                  IMAGES.portfolio,
+              imageUrl:
+                IMAGES.portfolio,
 
-                buttonLabel:
-                  "Ver projetos",
+              buttonLabel:
+                "Ver projetos",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "Projetos selecionados",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Projetos selecionados"
+            }),
 
 
-            s(
-              "text",
-              {
-                eyebrow:
-                  "Sobre",
+            s("text", {
 
-                title:
-                  "Design com propósito",
-              }
-            ),
+              eyebrow:
+                "Sobre",
+
+              title:
+                "Design com propósito",
+
+            }),
 
 
             s("logos"),
 
 
-            s(
-              "cta",
-              {
-                title:
-                  "Vamos criar algo juntos?",
-              }
-            ),
+            s("cta", {
+
+              title:
+                "Vamos criar algo juntos?"
+
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Ana Ribeiro",
-              }
-            ),
+            s("footer", {
+
+              logoText:
+                "Ana Ribeiro"
+
+            }),
+
 
           ],
 
@@ -550,35 +543,40 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
-
-
-
-
   {
     id: "restaurante",
 
     name: "Restaurante",
 
-    category: "Alimentação",
+    category:
+      "Alimentação",
 
     description:
       "Cardápio, ambiente, reservas e integração com WhatsApp para delivery.",
 
-    emoji: "🍽️",
+    emoji:
+      "🍽️",
 
     gradient:
       "from-amber-500 via-orange-600 to-red-500",
 
-    minPlanLevel: 2,
+    minPlanLevel:
+      2,
 
-    primaryColor: "#f97316",
+    primaryColor:
+      "#f97316",
 
-    secondaryColor: "#22e58a",
+    secondaryColor:
+      "#22e58a",
 
     fontFamily:
       "Playfair Display",
 
-    featured: false,
+    featured:
+      false,
+
+    preview:
+      IMAGES.restaurant,
 
 
     blueprint: {
@@ -587,86 +585,73 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Cantina Bella",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Cantina Bella"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Cozinha italiana",
+              eyebrow:
+                "Cozinha italiana",
 
-                title:
-                  "Sabor artesanal em cada prato",
+              title:
+                "Sabor artesanal em cada prato",
 
-                subtitle:
-                  "Massas frescas, vinhos selecionados e ambiente acolhedor no coração da cidade.",
+              subtitle:
+                "Massas frescas, vinhos selecionados e ambiente acolhedor no coração da cidade.",
 
-                imageUrl:
-                  IMAGES.restaurant,
+              imageUrl:
+                IMAGES.restaurant,
 
-                buttonLabel:
-                  "Reservar mesa",
+              buttonLabel:
+                "Reservar mesa",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Nosso cardápio",
-              }
-            ),
+            s("cards", {
+              title:
+                "Nosso cardápio"
+            }),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "O ambiente",
-              }
-            ),
+            s("gallery", {
+              title:
+                "O ambiente"
+            }),
 
 
             s("testimonials"),
 
+
             s("map"),
 
 
-            s(
-              "social",
-              {
-                title:
-                  "Peça pelo WhatsApp",
-              }
-            ),
+            s("social", {
+              title:
+                "Peça pelo WhatsApp"
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Cantina Bella",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Cantina Bella"
+            }),
+
 
           ],
 
@@ -682,30 +667,46 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
+
+
+
+
+
   {
     id: "landing-page",
 
-    name: "Landing Page",
+    name:
+      "Landing Page",
 
-    category: "Conversão",
+    category:
+      "Conversão",
 
     description:
       "Página única de alta conversão para campanhas e lançamentos.",
 
-    emoji: "🚀",
+    emoji:
+      "🚀",
 
     gradient:
       "from-sky-500 via-blue-600 to-violet-600",
 
-    minPlanLevel: 1,
+    minPlanLevel:
+      1,
 
-    primaryColor: "#2f7bff",
+    primaryColor:
+      "#2f7bff",
 
-    secondaryColor: "#22e58a",
+    secondaryColor:
+      "#22e58a",
 
-    fontFamily: "Inter",
+    fontFamily:
+      "Inter",
 
-    featured: true,
+    featured:
+      true,
+
+    preview:
+      IMAGES.landing,
 
 
     blueprint: {
@@ -714,53 +715,55 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "banner",
-              {
-                eyebrow:
-                  "Lançamento",
+            s("banner", {
 
-                title:
-                  "A oferta que vai transformar o seu negócio",
+              eyebrow:
+                "Lançamento",
 
-                subtitle:
-                  "Garanta condições exclusivas por tempo limitado.",
+              title:
+                "A oferta que vai transformar o seu negócio",
 
-                imageUrl:
-                  IMAGES.landing,
+              subtitle:
+                "Garanta condições exclusivas por tempo limitado.",
 
-                buttonLabel:
-                  "Quero garantir",
-              }
-            ),
+              imageUrl:
+                IMAGES.landing,
+
+              buttonLabel:
+                "Quero garantir",
+
+            }),
 
 
             s("icons"),
 
+
             s("counters"),
+
 
             s("testimonials"),
 
-            s(
-              "pricing",
-              {
-                title:
-                  "Planos disponíveis",
-              }
-            ),
+
+            s("pricing"),
+
 
             s("faq"),
 
+
             s("form"),
+
 
             s("footer"),
 
@@ -777,30 +780,42 @@ export const TEMPLATES: TemplateDefinition[] = [
 
 
 
+
   {
     id: "barbearia",
 
-    name: "Barbearia",
+    name:
+      "Barbearia",
 
-    category: "Serviços",
+    category:
+      "Serviços",
 
     description:
       "Serviços, preços, equipe e agendamento direto no WhatsApp.",
 
-    emoji: "💈",
+    emoji:
+      "💈",
 
     gradient:
       "from-zinc-700 via-slate-700 to-amber-600",
 
-    minPlanLevel: 2,
+    minPlanLevel:
+      2,
 
-    primaryColor: "#f59e0b",
+    primaryColor:
+      "#f59e0b",
 
-    secondaryColor: "#2f7bff",
+    secondaryColor:
+      "#2f7bff",
 
-    fontFamily: "Oswald",
+    fontFamily:
+      "Oswald",
 
-    featured: false,
+    featured:
+      false,
+
+    preview:
+      IMAGES.barber,
 
 
     blueprint: {
@@ -809,87 +824,72 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Barber King",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Barber King"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Desde 2012",
+              eyebrow:
+                "Desde 2012",
 
-                title:
-                  "Estilo clássico, atendimento premium",
+              title:
+                "Estilo clássico, atendimento premium",
 
-                subtitle:
-                  "Cortes, barba e cuidados masculinos com hora marcada.",
+              subtitle:
+                "Cortes, barba e cuidados masculinos com hora marcada.",
 
-                imageUrl:
-                  IMAGES.barber,
+              imageUrl:
+                IMAGES.barber,
 
-                buttonLabel:
-                  "Agendar horário",
+              buttonLabel:
+                "Agendar horário",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "pricing",
-              {
-                title:
-                  "Tabela de serviços",
-              }
-            ),
+            s("pricing", {
+              title:
+                "Tabela de serviços"
+            }),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "Nossos cortes",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Nossos cortes"
+            }),
 
 
             s("testimonials"),
 
 
-            s(
-              "social",
-              {
-                title:
-                  "Agende pelo WhatsApp",
-              }
-            ),
+            s("social", {
+              title:
+                "Agende pelo WhatsApp"
+            }),
 
 
             s("map"),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Barber King",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Barber King"
+            }),
 
           ],
 
@@ -905,34 +905,41 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
-
-
-
-
   {
     id: "clinica",
 
-    name: "Clínica",
+    name:
+      "Clínica",
 
-    category: "Saúde",
+    category:
+      "Saúde",
 
     description:
       "Especialidades, corpo clínico, convênios e agendamento online.",
 
-    emoji: "🩺",
+    emoji:
+      "🩺",
 
     gradient:
       "from-cyan-500 via-sky-500 to-blue-600",
 
-    minPlanLevel: 2,
+    minPlanLevel:
+      2,
 
-    primaryColor: "#0ea5e9",
+    primaryColor:
+      "#0ea5e9",
 
-    secondaryColor: "#22e58a",
+    secondaryColor:
+      "#22e58a",
 
-    fontFamily: "Inter",
+    fontFamily:
+      "Inter",
 
-    featured: false,
+    featured:
+      false,
+
+    preview:
+      IMAGES.clinic,
 
 
     blueprint: {
@@ -941,89 +948,75 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Clínica Vitalis",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Clínica Vitalis"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Cuidado humanizado",
+              eyebrow:
+                "Cuidado humanizado",
 
-                title:
-                  "Saúde com tecnologia e acolhimento",
+              title:
+                "Saúde com tecnologia e acolhimento",
 
-                subtitle:
-                  "Equipe multidisciplinar, exames modernos e atendimento personalizado.",
+              subtitle:
+                "Equipe multidisciplinar, exames modernos e atendimento personalizado.",
 
-                imageUrl:
-                  IMAGES.clinic,
+              imageUrl:
+                IMAGES.clinic,
 
-                buttonLabel:
-                  "Agendar consulta",
+              buttonLabel:
+                "Agendar consulta",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Especialidades",
-              }
-            ),
+            s("cards", {
+              title:
+                "Especialidades"
+            }),
 
 
-            s(
-              "icons",
-              {
-                title:
-                  "Nossa estrutura",
-              }
-            ),
+            s("icons", {
+              title:
+                "Nossa estrutura"
+            }),
 
 
             s("testimonials"),
 
+
             s("faq"),
 
 
-            s(
-              "form",
-              {
-                title:
-                  "Agende sua avaliação",
-              }
-            ),
+            s("form", {
+              title:
+                "Agende sua avaliação"
+            }),
 
 
             s("map"),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Clínica Vitalis",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Clínica Vitalis"
+            }),
 
           ],
 
@@ -1043,126 +1036,119 @@ export const TEMPLATES: TemplateDefinition[] = [
 
 
 
+
   {
     id: "academia",
 
-    name: "Academia",
+    name:
+      "Academia",
 
-    category: "Fitness",
+    category:
+      "Fitness",
 
     description:
       "Modalidades, planos, estrutura e matrícula online.",
 
-    emoji: "🏋️",
+    emoji:
+      "🏋️",
 
     gradient:
       "from-lime-500 via-emerald-500 to-teal-600",
 
-    minPlanLevel: 2,
+    minPlanLevel:
+      2,
 
-    primaryColor: "#22c55e",
+    primaryColor:
+      "#22c55e",
 
-    secondaryColor: "#2f7bff",
+    secondaryColor:
+      "#2f7bff",
 
-    fontFamily: "Montserrat",
+    fontFamily:
+      "Montserrat",
 
-    featured: false,
+    featured:
+      false,
+
+    preview:
+      IMAGES.gym,
+
+
     blueprint: {
 
       pages: [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Forge Fit",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Forge Fit"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Treine com propósito",
+              eyebrow:
+                "Treine com propósito",
 
-                title:
-                  "Sua melhor versão começa hoje",
+              title:
+                "Sua melhor versão começa hoje",
 
-                subtitle:
-                  "Musculação, funcional, crossfit e acompanhamento profissional.",
+              subtitle:
+                "Musculação, funcional, crossfit e acompanhamento profissional.",
 
-                imageUrl:
-                  IMAGES.gym,
+              imageUrl:
+                IMAGES.gym,
 
-                buttonLabel:
-                  "Matricule-se",
+              buttonLabel:
+                "Matricule-se",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Modalidades",
-              }
-            ),
+            s("cards", {
+              title:
+                "Modalidades"
+            }),
 
 
-            s(
-              "pricing",
-              {
-                title:
-                  "Planos e mensalidades",
-              }
-            ),
+            s("pricing", {
+              title:
+                "Planos e mensalidades"
+            }),
 
 
-            s("counters"),
-
-
-            s(
-              "gallery",
-              {
-                title:
-                  "Nossa estrutura",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Nossa estrutura"
+            }),
 
 
             s("testimonials"),
 
 
-            s(
-              "cta",
-              {
-                title:
-                  "Primeira aula experimental grátis",
-              }
-            ),
+            s("cta", {
+              title:
+                "Primeira aula experimental grátis"
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Forge Fit",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Forge Fit"
+            }),
 
           ],
 
@@ -1182,22 +1168,27 @@ export const TEMPLATES: TemplateDefinition[] = [
 
 
 
+
   {
     id: "advogado",
 
-    name: "Advogado",
+    name:
+      "Advogado",
 
-    category: "Jurídico",
+    category:
+      "Jurídico",
 
     description:
       "Áreas de atuação, autoridade profissional e captação de casos.",
 
-    emoji: "⚖️",
+    emoji:
+      "⚖️",
 
     gradient:
       "from-slate-700 via-blue-900 to-indigo-800",
 
-    minPlanLevel: 1,
+    minPlanLevel:
+      1,
 
     primaryColor:
       "#1d4ed8",
@@ -1208,7 +1199,11 @@ export const TEMPLATES: TemplateDefinition[] = [
     fontFamily:
       "Merriweather",
 
-    featured: false,
+    featured:
+      false,
+
+    preview:
+      IMAGES.law,
 
 
     blueprint: {
@@ -1217,66 +1212,59 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Almeida & Associados",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Almeida & Associados"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Advocacia especializada",
+              eyebrow:
+                "Advocacia especializada",
 
-                title:
-                  "Defesa técnica com estratégia e ética",
+              title:
+                "Defesa técnica com estratégia e ética",
 
-                subtitle:
-                  "Atuação em direito civil, trabalhista, empresarial e tributário.",
+              subtitle:
+                "Atuação em direito civil, trabalhista, empresarial e tributário.",
 
-                imageUrl:
-                  IMAGES.law,
+              imageUrl:
+                IMAGES.law,
 
-                buttonLabel:
-                  "Falar com advogado",
+              buttonLabel:
+                "Falar com advogado",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Áreas de atuação",
-              }
-            ),
+            s("cards", {
+              title:
+                "Áreas de atuação"
+            }),
 
 
-            s(
-              "text",
-              {
-                eyebrow:
-                  "Sobre o escritório",
+            s("text", {
 
-                title:
-                  "20 anos defendendo direitos",
-              }
-            ),
+              eyebrow:
+                "Sobre o escritório",
+
+              title:
+                "20 anos defendendo direitos",
+
+            }),
 
 
             s("counters"),
@@ -1285,22 +1273,16 @@ export const TEMPLATES: TemplateDefinition[] = [
             s("faq"),
 
 
-            s(
-              "form",
-              {
-                title:
-                  "Solicite uma análise do seu caso",
-              }
-            ),
+            s("form", {
+              title:
+                "Solicite uma análise do seu caso"
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Almeida & Associados",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Almeida & Associados"
+            }),
 
           ],
 
@@ -1316,26 +1298,26 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
-
-
-
-
   {
     id: "imobiliaria",
 
-    name: "Imobiliária",
+    name:
+      "Imobiliária",
 
-    category: "Imóveis",
+    category:
+      "Imóveis",
 
     description:
       "Catálogo de imóveis, busca, corretores e captação de leads.",
 
-    emoji: "🏠",
+    emoji:
+      "🏠",
 
     gradient:
       "from-orange-500 via-rose-500 to-fuchsia-600",
 
-    minPlanLevel: 3,
+    minPlanLevel:
+      3,
 
     primaryColor:
       "#f43f5e",
@@ -1346,7 +1328,11 @@ export const TEMPLATES: TemplateDefinition[] = [
     fontFamily:
       "Poppins",
 
-    featured: true,
+    featured:
+      true,
+
+    preview:
+      IMAGES.realestate,
 
 
     blueprint: {
@@ -1355,63 +1341,54 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "header",
-              {
-                logoText:
-                  "Prime Imóveis",
-              }
-            ),
+            s("header", {
+              logoText:
+                "Prime Imóveis"
+            }),
 
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Encontre seu lar",
+              eyebrow:
+                "Encontre seu lar",
 
-                title:
-                  "Imóveis selecionados nas melhores regiões",
+              title:
+                "Imóveis selecionados nas melhores regiões",
 
-                subtitle:
-                  "Compra, venda e locação com assessoria completa.",
+              subtitle:
+                "Compra, venda e locação com assessoria completa.",
 
-                imageUrl:
-                  IMAGES.realestate,
+              imageUrl:
+                IMAGES.realestate,
 
-                buttonLabel:
-                  "Ver imóveis",
+              buttonLabel:
+                "Ver imóveis",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "Destaques da semana",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Destaques da semana"
+            }),
 
 
-            s(
-              "cards",
-              {
-                title:
-                  "Como podemos ajudar",
-              }
-            ),
+            s("cards", {
+              title:
+                "Como podemos ajudar"
+            }),
 
 
             s("counters"),
@@ -1423,22 +1400,16 @@ export const TEMPLATES: TemplateDefinition[] = [
             s("map"),
 
 
-            s(
-              "form",
-              {
-                title:
-                  "Quero receber ofertas",
-              }
-            ),
+            s("form", {
+              title:
+                "Quero receber ofertas"
+            }),
 
 
-            s(
-              "footer",
-              {
-                logoText:
-                  "Prime Imóveis",
-              }
-            ),
+            s("footer", {
+              logoText:
+                "Prime Imóveis"
+            }),
 
           ],
 
@@ -1454,22 +1425,31 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
 
   },
+
+
+
+
+
   {
     id: "criador-conteudo",
 
-    name: "Criador de Conteúdo",
+    name:
+      "Criador de Conteúdo",
 
-    category: "Criativo",
+    category:
+      "Criativo",
 
     description:
       "Bio link premium com redes, mídia kit, vídeos e parcerias.",
 
-    emoji: "🎬",
+    emoji:
+      "🎬",
 
     gradient:
       "from-violet-600 via-pink-600 to-orange-500",
 
-    minPlanLevel: 3,
+    minPlanLevel:
+      3,
 
     primaryColor:
       "#8b5cf6",
@@ -1480,7 +1460,11 @@ export const TEMPLATES: TemplateDefinition[] = [
     fontFamily:
       "Sora",
 
-    featured: true,
+    featured:
+      true,
+
+    preview:
+      IMAGES.creator,
 
 
     blueprint: {
@@ -1489,78 +1473,66 @@ export const TEMPLATES: TemplateDefinition[] = [
 
         {
 
-          name: "Início",
+          name:
+            "Início",
 
-          path: "/",
+          path:
+            "/",
 
-          isHome: true,
+          isHome:
+            true,
 
 
           sections: [
 
-            s(
-              "banner",
-              {
+            s("banner", {
 
-                eyebrow:
-                  "Criador digital",
+              eyebrow:
+                "Criador digital",
 
-                title:
-                  "Conteúdo que conecta marcas e pessoas",
+              title:
+                "Conteúdo que conecta marcas e pessoas",
 
-                subtitle:
-                  "+500 mil seguidores em campanhas com resultados reais.",
+              subtitle:
+                "+500 mil seguidores em campanhas com resultados reais.",
 
-                imageUrl:
-                  IMAGES.creator,
+              imageUrl:
+                IMAGES.creator,
 
-                buttonLabel:
-                  "Mídia kit",
+              buttonLabel:
+                "Mídia kit",
 
-              }
-            ),
+            }),
 
 
-            s(
-              "counters",
-              {
-                title:
-                  "Alcance",
-              }
-            ),
+            s("counters", {
+              title:
+                "Alcance"
+            }),
 
 
             s("video"),
 
 
-            s(
-              "gallery",
-              {
-                title:
-                  "Últimos trabalhos",
-              }
-            ),
+            s("gallery", {
+              title:
+                "Últimos trabalhos"
+            }),
 
 
-            s(
-              "logos",
-              {
-                title:
-                  "Marcas parceiras",
-              }
-            ),
+            s("logos", {
+              title:
+                "Marcas parceiras"
+            }),
 
 
             s("social"),
 
 
-            s(
-              "form",
-              {
-                title:
-                  "Proposta de parceria",
-              }
-            ),
+            s("form", {
+              title:
+                "Proposta de parceria"
+            }),
 
 
             s("footer"),
@@ -1579,12 +1551,16 @@ export const TEMPLATES: TemplateDefinition[] = [
 
 
 
-export const TEMPLATE_MAP: Record<string, TemplateDefinition> =
+
+
+export const TEMPLATE_MAP:
+Record<string, TemplateDefinition> =
   TEMPLATES.reduce(
 
     (acc, template) => {
 
-      acc[template.id] = template;
+      acc[template.id] =
+        template;
 
       return acc;
 
@@ -1593,6 +1569,8 @@ export const TEMPLATE_MAP: Record<string, TemplateDefinition> =
     {} as Record<string, TemplateDefinition>
 
   );
+
+
 
 
 
@@ -1610,19 +1588,25 @@ export function getTemplate(
 
 
 
+
+
 export interface InstantiatedTemplate {
 
-  pages: EditorPage[];
+  pages:
+    EditorPage[];
 
-  sections: Record<string, EditorSection[]>;
+  sections:
+    Record<string, EditorSection[]>;
 
 }
 
 
 
+
+
 /**
- * Gera a estrutura inicial do template:
- * páginas + blocos
+ * Gera a estrutura inicial do site
+ * baseado no template escolhido.
  */
 
 export function instantiateTemplate(
@@ -1635,16 +1619,21 @@ export function instantiateTemplate(
 
 
 
-  const pages: EditorPage[] = [];
+  const pages:
+    EditorPage[] = [];
+
+
 
   const sections:
     Record<string, EditorSection[]> = {};
 
 
 
+
+
   template.blueprint.pages.forEach(
 
-    (blueprintPage, pageIndex) => {
+    (blueprintPage, pageIndex)=>{
 
 
       const pageId =
@@ -1654,7 +1643,8 @@ export function instantiateTemplate(
 
       pages.push({
 
-        id: pageId,
+        id:
+          pageId,
 
         name:
           blueprintPage.name,
@@ -1663,8 +1653,7 @@ export function instantiateTemplate(
           blueprintPage.path,
 
         isHome:
-          blueprintPage.isHome
-          ??
+          blueprintPage.isHome ??
           pageIndex === 0,
 
         position:
@@ -1685,11 +1674,12 @@ export function instantiateTemplate(
 
 
 
-      sections[pageId] =
 
+
+      sections[pageId] =
         blueprintPage.sections.map(
 
-          (blueprintSection, index) => {
+          (blueprintSection,index)=>{
 
 
             const base =
@@ -1716,6 +1706,7 @@ export function instantiateTemplate(
               },
 
 
+
               styles: {
 
                 ...defaultStyles(
@@ -1728,6 +1719,7 @@ export function instantiateTemplate(
 
             };
 
+
           }
 
         );
@@ -1736,6 +1728,8 @@ export function instantiateTemplate(
     }
 
   );
+
+
 
 
 
